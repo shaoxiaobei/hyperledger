@@ -6,12 +6,12 @@ services:
   # If you want to run fabric command on the host, then map 7051:7051 to host
   # port, or use like `CORE_PEER_ADDRESS=172.17.0.2:7051` to specify peer addr.
   vp0:
-    extends:
+
+extends:
       file: peer.yml
       service: vp
     hostname: vp0
     environment:
-    #  - CORE_PEER_ADDRESS=172.19.0.2:7051
       - CORE_PEER_ID=vp0
     ports:
       - "7050:7050"
@@ -27,7 +27,6 @@ services:
       service: vp
     hostname: vp1
     environment:
-    #  - CORE_PEER_ADDRESS=172.19.0.4:7051
       - CORE_PEER_ID=vp1
       - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
     links:
@@ -41,8 +40,8 @@ services:
     extends:
       file: peer.yml
       service: vp
-    hostname: vp2    environment:
-     # - CORE_PEER_ADDRESS=172.19.0.5:7051
+    hostname: vp2    
+    environment:
       - CORE_PEER_ID=vp2
       - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
     links:
@@ -59,7 +58,6 @@ services:
       service: vp
     hostname: vp3
     environment:
-     # - CORE_PEER_ADDRESS=172.19.0.3:7051
       - CORE_PEER_ID=vp3
       - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
     links:

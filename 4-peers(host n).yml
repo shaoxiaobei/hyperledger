@@ -1,0 +1,64 @@
+version: '2'
+
+services:
+  vp4:
+    extends:
+      file: peer.yml
+      service: vp
+    hostname: vp4
+    environment:
+      - CORE_PEER_ID=vp4
+      - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
+    external_links:
+      - vp0
+    networks:
+      - hyp-net
+
+
+  # validating node
+  vp5:
+    extends:
+      file: peer.yml
+      service: vp
+    hostname: vp5
+    environment:
+      - CORE_PEER_ID=vp5
+      - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
+    external_links:
+      - vp0
+    networks:
+      - hyp-net
+
+
+  # validating node
+  vp6:
+    extends:
+      file: peer.yml
+      service: vp
+    hostname: vp6
+    environment:
+      - CORE_PEER_ID=vp6
+      - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
+    external_links:
+      - vp0
+    networks:
+      - hyp-net
+
+
+  # validating node
+  vp7:
+    extends:
+      file: peer.yml
+      service: vp
+    hostname: vp7
+    environment:
+      - CORE_PEER_ID=vp7
+      - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
+    external_links:
+      - vp0
+    networks:
+      - hyp-net
+
+networks:
+   hyp-net:
+     external: true

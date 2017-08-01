@@ -6,8 +6,7 @@ services:
   # If you want to run fabric command on the host, then map 7051:7051 to host
   # port, or use like `CORE_PEER_ADDRESS=172.17.0.2:7051` to specify peer addr.
   vp0:
-
-extends:
+    extends:
       file: peer.yml
       service: vp
     hostname: vp0
